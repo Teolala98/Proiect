@@ -4,20 +4,25 @@ public class Profile {
     private String material;
     private double lungime;
     public double pretML;
+    private double pretFinal;
 
     public Profile(String material, double lungime){
         this.material=material;
         this.lungime=lungime;
 
     }
+    public Profile(){}
 
     public double CalculatorPret(){
+
+        System.out.println("Introduceti pretul pe metru liniar: ");
         //convertesc din mm in m
+        Scanner sc = new Scanner(System.in);
         double lungime = this.lungime;
-        double pretML= this.pretML;
+        double pretML= sc.nextDouble();
         lungime/=1000;
         double pretFinal= lungime*pretML;
-        return pretFinal;
+        return this.pretFinal=pretFinal;
     }
 
     public String ceMaterial(String material){
@@ -25,6 +30,7 @@ public class Profile {
         Scanner sc = new Scanner(System.in);
         material=sc.nextLine();
     return material;}
+
 
 
     public String getMaterial() {

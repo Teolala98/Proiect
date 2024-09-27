@@ -1,4 +1,5 @@
 import java.util.Objects;
+import java.util.Scanner;
 
 public class TeavaRectangulara extends Profile{
     private double suprafata;
@@ -15,6 +16,27 @@ public class TeavaRectangulara extends Profile{
         this.latura2=latura2;
         this.pretML=pretML;
 
+    }
+
+    public TeavaRectangulara(){}
+
+    public void introducereDate(){
+        System.out.println("Introduceti lungimea: ");
+        Scanner sc2  = new Scanner(System.in);
+        setLungime(sc2.nextDouble());
+
+        System.out.println("Introduceti latura scurta: ");
+        latura1=sc2.nextDouble();
+
+        System.out.println("Introduceti latura lunga: ");
+        latura2=sc2.nextDouble();
+
+        System.out.println("Introduceti grosimea: ");
+        grosime=sc2.nextDouble();
+
+        System.out.println("Greutatea este de "+calcGreutate()+" kg");
+        System.out.println("Suprafata este de "+calcSuprafata()+" mp");
+        System.out.println("Pretul este de " + CalculatorPret()+" lei");
     }
 
     public double calcGreutate(){
@@ -42,5 +64,15 @@ public class TeavaRectangulara extends Profile{
     }
 
 
+    public void setGrosime(double grosime) {
+        this.grosime = grosime;
+    }
 
+    public void setLatura2(double latura2) {
+        this.latura2 = latura2;
+    }
+
+    public void setLatura1(double latura1) {
+        this.latura1 = latura1;
+    }
 }

@@ -1,14 +1,13 @@
 import java.util.Objects;
 import java.util.Scanner;
 
-public class TeavaPatrata extends Profile{
+public class Platbanda extends Profile{
     private double suprafata;
     private double greutate;
     private double latura;
-        private double grosime;
+    private double grosime;
 
-
-    public TeavaPatrata(String material, double lungime,  double pretML, double latura, double grosime) {
+    public Platbanda(String material, double lungime,  double pretML, double latura, double grosime) {
         super(material, lungime);
         this.grosime=grosime;
         this.latura=latura;
@@ -16,19 +15,19 @@ public class TeavaPatrata extends Profile{
 
     }
 
-    public TeavaPatrata(){}
+    public Platbanda(){}
 
     public void introducereDate(){
         System.out.println("Introduceti lungimea: ");
-        Scanner sc3  = new Scanner(System.in);
-        setLungime(sc3.nextDouble());
+        Scanner sc4  = new Scanner(System.in);
+        setLungime(sc4.nextDouble());
 
         System.out.println("Introduceti latura scurta: ");
-        latura=sc3.nextDouble();
+        latura=(sc4.nextDouble());
 
 
         System.out.println("Introduceti grosimea: ");
-        grosime=(sc3.nextDouble());
+        grosime=(sc4.nextDouble());
 
         System.out.println("Greutatea este de "+calcGreutate()+" kg");
         System.out.println("Suprafata este de "+calcSuprafata()+" mp");
@@ -38,15 +37,14 @@ public class TeavaPatrata extends Profile{
     public double calcGreutate(){
         String materialul= ceMaterial(getMaterial());
         double lungimea = getLungime();
-        double volumTotal=latura*latura*lungimea;
-        double volumInterior = (latura-2*grosime)*(latura-2*grosime)*lungimea;
+
         if(Objects.equals(materialul, "Otel")){
 
-            this.greutate = DensitateMateriale.densitateOtel*(volumTotal-volumInterior)/1000000;
+            this.greutate = DensitateMateriale.densitateOtel*(latura*grosime*lungimea)/1000000;
 
         }
         else if (Objects.equals(materialul, "Inox")){
-            this.greutate = DensitateMateriale.densitateInox*(volumTotal-volumInterior)/1000000;
+            this.greutate = DensitateMateriale.densitateInox*(latura*grosime*lungimea)/1000000;
 
         }
         return greutate;
@@ -55,15 +53,15 @@ public class TeavaPatrata extends Profile{
 
     public double calcSuprafata(){
         double lungimea = getLungime();
-        this.suprafata=(4*latura)*lungimea/10000;
+        this.suprafata=(2*grosime+2*latura)*lungimea/10000;
         return this.suprafata;
-    }
-
-    public void setGrosime(double grosime) {
-        this.grosime = grosime;
     }
 
     public void setLatura(double latura) {
         this.latura = latura;
+    }
+
+    public void setGrosime(double grosime) {
+        this.grosime = grosime;
     }
 }
