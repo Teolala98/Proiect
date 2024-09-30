@@ -59,7 +59,7 @@ public class TeavaRectangulara extends Profile{
 
     public double calcSuprafata(){
         double lungimea = getLungime();
-        this.suprafata=(2*latura1+2*latura2)*lungimea/10000;
+        this.suprafata=(2*latura1+2*latura2)*lungimea/1000000;
         return this.suprafata;
     }
 
